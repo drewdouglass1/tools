@@ -1,0 +1,14 @@
+Gets Container Image:
+docker pull <image_name>
+
+Lists stopped & running Containers
+docker ps -a
+
+Deletes container
+docker rm <container ID>
+
+Deletes Image
+docker rmi <image_name>
+
+CPU, Mem, IO
+docker stats

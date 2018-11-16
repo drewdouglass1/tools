@@ -1,0 +1,1 @@
+for i in 80 81 82 83 84; do docker run -d -p $i:9080  websphere-liberty:webProfile7 ; done

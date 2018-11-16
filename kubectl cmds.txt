@@ -1,0 +1,32 @@
+Get the state of your cluster
+kubectl cluster-info
+
+Get all the nodes of your cluster
+kubectl get nodes -o wide
+
+Get info about the pods of your cluster
+kubectl get pods -o wide
+
+Get inf about the replication controllers of your cluster
+kubectl get rc -o wide
+
+Get info about the services of your cluster
+kubectl get services
+
+Get full config info about a service
+kubectl get service <name_of_service> -o json
+
+Get the IP of a Pod
+kubectl get pod <name_of_pod> -template={{.status.podIP}}
+
+Delete a Pod
+kubectl delete pod <name_of_pod>
+
+Delete a service
+kubectl delete service <name_of_service>
+
+Get Persistent Volumes status
+kubectl get pv
+
+Evict pods from a particular node.  You might want to do this if you have an existing node in your cluster that you have upgraded with some new capability and you only want pods that leverage this new capability to run on the node.
+kubectl taint nodes node1 key1=value1:NoExecute

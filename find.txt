@@ -1,0 +1,17 @@
+find . -name "foo.*"
+find . -name "*.txt"
+
+case-insensitive searching
+--------------------------
+find . -iname foo                               # find foo, Foo, FOo, FOO, etc.
+find . -iname foo -type d                       # same thing, but only dirs
+find . -iname foo -type f                       # same thing, but only files
+find . -type f -name “*.*” -exec grep -l rpm {} \; 
+
+find / -print | grep -i ‘secureGatewayCert.pem’
+
+find files by text in the file (find + grep)
+--------------------------------------------
+find . -type f -name "*.java" -exec grep -l StringBuffer {} \;    # find StringBuffer in all *.java files
+find . -type f -name "*.java" -exec grep -il string {} \;         # ignore case with -i option
+find . -type f -name "*.gz" -exec zgrep 'GET /foo' {} \;          # search for a string in gzip'd files

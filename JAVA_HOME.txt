@@ -1,0 +1,4 @@
+Update .bash_profile with new JAVA for virtuser
+export JAVA_HOME=/opt/IBM/WebSphere/AppServer/java
+export PATH=$JAVA_HOME/bin:$PATH
+

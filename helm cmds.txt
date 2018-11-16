@@ -1,0 +1,60 @@
+Install Tiller
+helm init
+
+Create a chart
+helm create <chart>
+
+Add a new chart repo
+helm repo add <user_defined_repo_name> <repo_url>
+
+List the repositories
+helm repo list
+
+Search for a chart
+helm search <keyword>
+
+Info about a chart
+helm inspect <chart>
+
+Deploy a chart (creates a release)
+helm install <chart>
+
+List all releases
+helm list --all
+
+Get the status of a release
+helm status <release>
+
+Get the details about a release
+helm get <release>
+
+Upgrade a release
+helm upgrade <release> <chart>
+
+Rollback a release
+helm rollback <release> <revision>
+
+Delete a release
+helm delete <release>
+
+To specify a release’s name, use the name flag
+helm install --name <user_defined_release_name> <chart>
+helm install --name CustomerDB stable/mysql
+
+To deploy the release into a particular Kubernetes namespace, use the namespace flag
+helm install --namespace <user_defined_namespace_name> <chart>
+helm install --namespace ordering-system stable/mysql
+
+To override an individual value, use the set flag
+helm install --set user.name=student,user.password=passw0rd stable/mysql
+
+To override values with a values file, use the values or f flag
+helm install --values <yaml_file> <chart>
+helm install --values myvalues.yaml stable/mysql
+
+Bundle Chart.yaml and releated files into a tar file
+helm package <chart_path>
+
+Personal Chart Repo - Any http server
+Generates an index of charts in the repo
+helm repo index <charts_path>
