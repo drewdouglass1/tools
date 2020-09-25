@@ -1,0 +1,16 @@
+apiVersion: oidc.security.ibm.com/v1
+kind: Client
+metadata:
+   name: ocpclient
+   namespace: cp4i-dev
+spec:
+   secret: ocpclientsecret
+   oidcLibertyClient:
+     post_logout_redirect_uris:
+     - 'https://cp-console.apps.health.cp4i.rocks:443'
+     redirect_uris:
+     - 'https://oauth-openshift.apps.health.cp4i.rocks/oauth2callback/IBM-IAM'    
+     trusted_uri_prefixes:
+     - 'https://console-openshift-console.apps.health.cp4i.rocks:443'
+
+

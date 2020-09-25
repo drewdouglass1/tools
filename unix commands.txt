@@ -1,0 +1,12 @@
+Run command in the background even after closing the terminal
+nohup <command> & > /dev/null &
+
+ssh -t username@host '<cmd>'
+
+ echo "{username} ALL = (root) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/{username}
+
+scp file.txt remote_username@10.10.0.2:/remote/directory
+
+Change to different java version
+/usr/sbin/alternatives --config java
+

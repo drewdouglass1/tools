@@ -1,3 +1,44 @@
+Valid resource types include:
+
+  * all
+  * certificatesigningrequests (aka 'csr')
+  * clusterrolebindings
+  * clusterroles
+  * clusters (valid only for federation apiservers)
+  * componentstatuses (aka 'cs')
+  * configmaps (aka 'cm')
+  * controllerrevisions
+  * cronjobs
+  * customresourcedefinition (aka 'crd')
+  * daemonsets (aka 'ds')
+  * deployments (aka 'deploy')
+  * endpoints (aka 'ep')
+  * events (aka 'ev')
+  * horizontalpodautoscalers (aka 'hpa')
+  * ingresses (aka 'ing')
+  * jobs
+  * limitranges (aka 'limits')
+  * namespaces (aka 'ns')
+  * networkpolicies (aka 'netpol')
+  * nodes (aka 'no')
+  * persistentvolumeclaims (aka 'pvc')
+  * persistentvolumes (aka 'pv')
+  * poddisruptionbudgets (aka 'pdb')
+  * podpreset
+  * pods (aka 'po')
+  * podsecuritypolicies (aka 'psp')
+  * podtemplates
+  * replicasets (aka 'rs')
+  * replicationcontrollers (aka 'rc')
+  * resourcequotas (aka 'quota')
+  * rolebindings
+  * roles
+  * secrets
+  * serviceaccounts (aka 'sa')
+  * services (aka 'svc')
+  * statefulsets
+  * storageclasses
+
 Get the state of your cluster
 kubectl cluster-info
 
@@ -30,3 +71,27 @@ kubectl get pv
 
 Evict pods from a particular node.  You might want to do this if you have an existing node in your cluster that you have upgraded with some new capability and you only want pods that leverage this new capability to run on the node.
 kubectl taint nodes node1 key1=value1:NoExecute
+
+kubectl -n kube-system top pods --containers | awk '/auth/ || /platform/ {print "kubectl -n kube-system logs " $1 " -c " $2 " > sg-" $1 "-" $2 ".log"}' | bash
+tar czvf support-gather.tgz sg-*.log
+rm sg*.log
+
+# Describe commands with verbose output
+kubectl describe nodes my-node
+kubectl describe pods my-pod
+
+kubectl logs my-pod -n kube-system
+
+kubectl top pod POD_NAME --containers
+
+kubectl get pods --all-namespaces -o wide | grep -Fv Running
+
+oc get pods --all-namespaces -o wide | grep -F Terminating
+
+kubectl exec -it <pod-name> -- /bin/bash
+
+kubectl -n <namespace> delete pods --grace-period=0 --force <pod_name>
+
+sed -i 's/PermitRootLogin no/PermitRootLogin yes/g' /host/etc/ssh/sshd_config
+./systemutil  -service sshd.service
+ssh root@localhost

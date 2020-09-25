@@ -12,3 +12,29 @@ docker rmi <image_name>
 
 CPU, Mem, IO
 docker stats
+
+Removes dangling images which are not tagged or referenced by a container
+docker image prune
+
+To remove all images which are not used by existing containers
+docker image prune -a
+
+Removes unreferenced volumes
+docker volume prune
+
+This will remove:
+        - all stopped containers
+        - all networks not used by at least one container
+        - all volumes not used by at least one container
+        - all dangling images
+        - all build cache
+docker system prune --volumes
+
+docker rmi -f $(docker images -a -q)
+
+Removes stopped containers
+docker container prune
+
+docker logs -f <container-name>
+
+docker exec -it  /bin/bash

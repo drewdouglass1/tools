@@ -7,5 +7,5 @@ du -hs * | sort -rh | head -5
 display the largest folders/files including the sub-directories
 du -Sh | sort -rh | head -5
 
-display the biggest file sizes only
-find -type f -exec du -Sh {} + | sort -rh | head -n 5
+display the biggest file sizes only in Current directory
+find . -printf '%s %p\n'| sort -nr | head -10

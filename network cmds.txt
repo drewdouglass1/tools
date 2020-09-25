@@ -33,3 +33,16 @@ TCP Autotuning setting. "This variable takes 3 different values which holds info
 
 Type:sudo sysctl -w net.ipv4.route.flush=1
 This will enusre that immediatly subsequent connections use these values. 
+
+
+Go to /Library/Preferences/SystemConfiguration/ and delete these files
+
+rm -rf /Library/Preferences/SystemConfiguration/com.apple.airport.preferences.plist
+
+rm -rf /Library/Preferences/SystemConfiguration/com.apple.network.eapolclient.configuration.plist
+
+rm -rf /Library/Preferences/SystemConfiguration/com.apple.wifi.message-tracer.plist
+
+rm -rf /Library/Preferences/SystemConfiguration/NetworkInterfaces.plist
+
+rm -rf /Library/Preferences/SystemConfiguration/preferences.plist

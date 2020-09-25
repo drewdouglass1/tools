@@ -1,0 +1,4 @@
+=TRIM(SUBSTITUTE(A2,"-"," - "))
+
+=VLOOKUP(TRIM(SUBSTITUTE(Products!A11,"-"," - ")),'SKU Generator'!$I$6:$J$9999,2,FALSE)
+
